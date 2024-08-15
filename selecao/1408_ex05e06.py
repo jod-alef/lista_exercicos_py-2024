@@ -5,11 +5,14 @@
 # 
 numero = int(input("Entre um numero qualquer e checaremos se é positivo ou negativo: "))
 
+resposta =""
 if numero < 0:
-    print("O número é negativo")
+    resposta = "negativo"
 # ------------ Questão 06 ---------------------
 elif numero == 0:
-    print ("O número é 0")
+    resposta = "0"
 # ---------- Final Questão 06 ------------------
 else:
-    print("O número é positvo")
+    resposta = "positivo"
+
+print ("O número é", resposta)
