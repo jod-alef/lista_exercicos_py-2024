@@ -7,7 +7,7 @@ import time
 
 def progPrincipal():
     print("Verificador de idade para participar de votação")
-    time.sleep(2.5)
+    time.sleep(1.5)
     anoNasc = int(input("Digite o ano que você nasceu com 4 digitos (ex: 1992): "))
     idadeUsuario = idade(anoNasc)
     print(verificarVoto(idadeUsuario))
