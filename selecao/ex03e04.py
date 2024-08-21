@@ -16,4 +16,10 @@ def entradaNotas():
     else:
         print("PARABÉNS! Você foi aprovado!")
 
-entradaNotas()
+while True:
+    resposta = input("Você gostaria de inserir novas notas (s/n)")
+    if resposta == ("n" or "N"):
+        print("Obrigado por utilizar o sistema de calculo de aprovação")
+        break
+    else:
+        entradaNotas()
