@@ -2,10 +2,8 @@
 #escrevê-los em ordem crescente.
 
 lst = []
-
-n = 3
 print("Digite 3 números diferentes:")
-for i in range(0,n):
+for i in range(0,3):
     val = int(input())
     
     lst.append(val)
