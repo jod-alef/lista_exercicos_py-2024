@@ -12,9 +12,9 @@ def entradaNotas():
     media = (nota1 + nota2)/2
     
     if media < 6.0:
-        print("Você foi REPROVADO!")
+        print("Você foi REPROVADO! Sua nota foi", media)
     else:
-        print("PARABÉNS! Você foi aprovado!")
+        print("PARABÉNS! Você foi aprovado! Sua nota foi", media)
 
 while True:
     resposta = input("Você gostaria de inserir novas notas (s/n)")
