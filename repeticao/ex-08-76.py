@@ -1,6 +1,6 @@
 import time
 
-print("Bem vind@, este é um algoritimo que lê 50 valores inteiros positivos e:")
+print("Olá, este é um algoritimo que lê valores inteiros positivos e:")
 time.sleep(0.5)
 print("* Encontra o maior e o menor valor.")
 time.sleep(0.5)
