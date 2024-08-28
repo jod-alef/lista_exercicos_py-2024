@@ -14,6 +14,7 @@ for i in range(quantidadeNumero):
     listaNumeros.append(numeros)
 
 listaNumeros.sort()
-print(f"O\033[1m menor\033[0m número é", listaNumeros[0])
-print(f"O\033[1m maior\033[0m número é", listaNumeros[-1])
-print(f"A\033[1m média\033[0m de todos os números é", sum(listaNumeros)/quantidadeNumero)
+# Utilizei alguns códigos ANSI escape se quence para melhorar a leitura do terminal.
+print(f"O\033[1m menor\033[0m número é {listaNumeros[0]}")
+print(f"O\033[1m maior\033[0m número é {listaNumeros[-1]}")
+print(f"A\033[1m média\033[0m de todo6s os números é {sum(listaNumeros)/quantidadeNumero}")

@@ -1,0 +1,19 @@
+Type "help", "copyright", "credits" or "license" for more information.
+>>> '{}'.format(a)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined
+>>> a = "Jod"
+>>> '{}'.format(a)
+'Jod'
+>>> template = 'O {} foi a escola {}"
+  File "<stdin>", line 1
+    template = 'O {} foi a escola {}"
+               ^
+SyntaxError: unterminated string literal (detected at line 1)
+>>> template = "O {} foi a escola {}"
+>>> template.format("Jod","de tarde")
+'O Jod foi a escola de tarde'
+>>> '{} é lindo'.format(a)
+'Jod é lindo'
+>>>
