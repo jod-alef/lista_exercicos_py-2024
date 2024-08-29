@@ -11,10 +11,8 @@ def intro():
     print("* Gera e verifica jogos aleatórios contra o resultado.")
     time.sleep(1.5)
     print(" - Os números do bilhete podem ser digitados ou gerados de forma aleatória -")
-    listaNumeros = set()
-    #Bom lembrar, não dá para declarar set com o formato x = {''} pois o python interpreta como um dictionary, a forma
+    #Bom lembrar: não dá para declarar set com o formato x = {''} pois o python interpreta como um dictionary, a forma
     #correta de declarar sets vazios é utilizando o formato x = set()
-    numerosSorteados = set()
     principal()
 
 def sorteioMegaSena():
