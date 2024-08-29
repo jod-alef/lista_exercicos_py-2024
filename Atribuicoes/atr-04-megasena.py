@@ -62,17 +62,18 @@ def principal():
         print(".")
         time.sleep(0.1)
     sorteioMegaSena()
-    print(f"Os\033[1m números sorteados\033[0m foram: {numerosSorteados}")
+    print(f"Os\033[1m números sorteados\033[0m foram: {sorted(numerosSorteados)}")
     # Utilizei alguns códigos ANSI escape sequence para melhorar a leitura do terminal.
     time.sleep(1)
-    print(f"Os\033[1m seus números\033[0m foram {listaNumeros}")
+    print(f"Os\033[1m seus números\033[0m foram {sorted(listaNumeros)}")
     time.sleep(0.5)
-    acertos = len(numerosSorteados ^ listaNumeros)
-    if acertos == 4:
+    acertos = (numerosSorteados & listaNumeros)
+    print(acertos)
+    if len(acertos) == 4:
         print("Parabéns, você ganhou R$ 600,00 na Quadra")
-    elif acertos == 5:
+    elif len(acertos) == 5:
         print("Parabéns, você ganhou R$ 15.000,00 na Quina")
-    elif acertos == 6:
+    elif len(acertos) == 6:
         print("Você é o mais novo milionário do Brasil com R$ 35Milhões do prêmio máximo da MegaSena,\033[1m PARABÉNS!\033[0m")
     else:
         print("Você não ganhou nada, espero que tenha mais sorte da próxima vez")
