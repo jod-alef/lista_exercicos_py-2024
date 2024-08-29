@@ -28,16 +28,15 @@ def nAleatorio():
 while True:
     print("Você gostaria de digitar o número ou que os números sejam sorteados aleatoriamente?")
     print("Digite\033[1m d\033[0m para digitar ou\033[1m a\033[0m para aleatório")
-    aleatorio = input("")
-    if aleatorio == ("d" or "D"):
+    escolha = input("")
+    if escolha == ("d" or "D"):
         digitar()
         break
-    elif aleatorio == ("a" or "A"):
+    elif escolha == ("a" or "A"):
         nAleatorio()
         break
     else:
         print("Opção incorreta")
-
 
 print(f"Os\033[1m números escolhidos\033[0m foram: {listaNumeros}")
 listaNumeros.sort()
