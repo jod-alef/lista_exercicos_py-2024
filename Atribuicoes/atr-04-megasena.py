@@ -35,7 +35,6 @@ def digitar():
             print("[red bold]ATENÇÃO[/red bold] -- Não são permitidos números repetidos")
         else:
             listaNumeros.add(numeros)
-            print(len(listaNumeros))
 
 def nAleatorio():
     while True:
