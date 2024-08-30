@@ -2,6 +2,7 @@ import sys
 import time
 import random
 from rich import print
+from rich.progress import track
 
 def intro():
     print("Olá, este é um programa que sorteia os números da [b]MegaSena[/b]:", ":thumbsup:")
@@ -13,8 +14,6 @@ def intro():
     print(":arrow_right: ","Gera e verifica jogos aleatórios contra o resultado.")
     time.sleep(1.5)
     print("[blink][red][b] - Os números do bilhete podem ser digitados ou gerados de forma aleatória -[/b][/red][/blink]")
-    #Bom lembrar: não dá para declarar set com o formato x = {''} pois o python interpreta como um dictionary, a forma
-    #correta de declarar sets vazios é utilizando o formato x = set()
     principal()
 
 def sorteioMegaSena():
@@ -38,8 +37,6 @@ def digitar():
             listaNumeros.add(numeros)
             print(len(listaNumeros))
 
-
-
 def nAleatorio():
     while True:
         if len(listaNumeros) == 6:
@@ -61,9 +58,7 @@ def principal():
         else:
             print("Opção incorreta")
 
-    print('Sorteando os números')
-    for i in range(5):
-        print(".")
+    for i in track(range(10), description="Sorteando os números"):
         time.sleep(0.1)
     sorteioMegaSena()
     print(f"[b]Os números sorteados foram:[red] {sorted(numerosSorteados)}[/b][/red]")
@@ -79,11 +74,13 @@ def principal():
     elif len(acertos) == 6:
         print("Você é o mais novo milionário do Brasil com R$ 35Milhões do prêmio máximo da MegaSena,\033[1m PARABÉNS!\033[0m")
     else:
-        print("Você não ganhou nada, espero que tenha mais sorte da próxima vez")
-listaNumeros = set()
+        print(f"Você acertou {len(acertos)} numeros e não ganhou nada, espero que tenha mais sorte da próxima vez")
+
 #Bom lembrar, não dá para declarar set com o formato x = {''} pois o python interpreta como um dictionary, a forma
 #correta de declarar sets vazios é utilizando o formato x = set()
+listaNumeros = set()
 numerosSorteados = set()
+
 while True:
     print("Você gostaria de jogar? (s/n)")
     decisao = input("").lower()
@@ -99,4 +96,5 @@ while True:
         intro()
     else:
         print("Opção invalida")
+
 sys.exit()
