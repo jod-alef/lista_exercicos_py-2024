@@ -1,16 +1,18 @@
 import sys
 import time
 import random
+from rich import print
+
 def intro():
-    print("Olá, este é um programa que sorteia os números da MegaSena:")
+    print("Olá, este é um programa que sorteia os números da [b]MegaSena[/b]:", ":thumbsup:")
     time.sleep(0.5)
-    print("* Verifica suas apostas contra os números gerados.")
+    print(":arrow_right: ","Verifica suas apostas contra os números gerados.")
     time.sleep(0.5)
-    print("* Verifica os prêmios ganhados.")
+    print(":arrow_right: ","Verifica os prêmios ganhados.")
     time.sleep(0.5)
-    print("* Gera e verifica jogos aleatórios contra o resultado.")
+    print(":arrow_right: ","Gera e verifica jogos aleatórios contra o resultado.")
     time.sleep(1.5)
-    print(" - Os números do bilhete podem ser digitados ou gerados de forma aleatória -")
+    print("[blink][red][b] - Os números do bilhete podem ser digitados ou gerados de forma aleatória -[/b][/red][/blink]")
     #Bom lembrar: não dá para declarar set com o formato x = {''} pois o python interpreta como um dictionary, a forma
     #correta de declarar sets vazios é utilizando o formato x = set()
     principal()
@@ -23,18 +25,20 @@ def sorteioMegaSena():
             numerosSorteados.add(random.randrange(1,60))
 
 def digitar():
-    while True:
-        numeros = int(input(f"Insira o numero: "))
+    while len(listaNumeros) != 6:
+        print(f"Adicione o {len(listaNumeros)+1}º número: ")
+        numeros = int(input(""))
         if numeros > 60:
-            print("A mega sena só aceita números menores ou igual a 60")
+            print("[red bold]ATENÇÃO[/red bold] -- A mega sena só aceita números menores ou igual a 60")
         elif numeros <= 0:
-            print("0 ou números negativos não são permitidos")
+            print("[red bold]ATENÇÃO[/red bold] -- 0 ou números negativos não são permitidos")
         elif numeros in listaNumeros:
-            print("Não são permitidos números repetidos")
-        elif len(listaNumeros) == 6:
-            break
+            print("[red bold]ATENÇÃO[/red bold] -- Não são permitidos números repetidos")
         else:
             listaNumeros.add(numeros)
+            print(len(listaNumeros))
+
+
 
 def nAleatorio():
     while True:
@@ -46,12 +50,12 @@ def nAleatorio():
 def principal():
     while True:
         print("Você gostaria de digitar os números ou que os números sejam sorteados aleatoriamente?")
-        print("Digite\033[1m d\033[0m para digitar ou\033[1m a\033[0m para aleatório")
-        escolha = input("")
-        if escolha == ("d" or "D"):
+        print("[bold]Digite [blue]D[/blue] para digitar ou [red]A[/red] para aleatório[/bold]")
+        escolha = input("").lower()
+        if escolha == "d":
             digitar()
             break
-        elif escolha == ("a" or "A"):
+        elif escolha == "a":
             nAleatorio()
             break
         else:
@@ -62,13 +66,12 @@ def principal():
         print(".")
         time.sleep(0.1)
     sorteioMegaSena()
-    print(f"Os\033[1m números sorteados\033[0m foram: {sorted(numerosSorteados)}")
+    print(f"[b]Os números sorteados foram:[red] {sorted(numerosSorteados)}[/b][/red]")
     # Utilizei alguns códigos ANSI escape sequence para melhorar a leitura do terminal.
     time.sleep(1)
-    print(f"Os\033[1m seus números\033[0m foram {sorted(listaNumeros)}")
+    print(f"[b]Os seus números foram[blue] {sorted(listaNumeros)}[/b][/blue]")
     time.sleep(0.5)
     acertos = (numerosSorteados & listaNumeros)
-    print(acertos)
     if len(acertos) == 4:
         print("Parabéns, você ganhou R$ 600,00 na Quadra")
     elif len(acertos) == 5:
@@ -83,12 +86,12 @@ listaNumeros = set()
 numerosSorteados = set()
 while True:
     print("Você gostaria de jogar? (s/n)")
-    decisao = input("")
+    decisao = input("").lower()
     # LEMBRAR: ao utilizar o or em um if, SEMPRE utilizar parenteses ou checagem fica invalida e sem erros aparentes
-    if decisao == ("n" or "N"):
+    if decisao == "n":
         print("obrigado por utilizar nossos sistemas")
         break
-    elif decisao == ("s" or "S"):
+    elif decisao == "s":
         del listaNumeros
         del numerosSorteados
         listaNumeros = set()
